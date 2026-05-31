@@ -1,0 +1,12 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Archives
+*.zip
+
+# Node (if you add tooling later)
+node_modules/
