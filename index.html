@@ -1,13 +1,29 @@
 <!DOCTYPE html>
+<!--
+  HOME PAGE  (index.html)
+  =======================
+  This is the page that loads when someone visits the site root.
+  Structure, top to bottom:
+    - <nav>      the navigation bar (same on every page)
+    - <header>   the animated "hero" banner
+    - Mission    who we are / what we stand for
+    - Sponsors   the two supporter logos (pulled from the original site)
+    - Officers   "Meet the team" cards
+    - Meetings   when/where + how to join the listserv
+    - <footer>   address + contact (same on every page)
+  All styling lives in styles.css; all behaviour lives in script.js.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Princeton Chess Club</title>
+<title>Princeton University Chess Club</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- NAVIGATION BAR — these four links mirror the original site.
+     The link for the current page gets class="active" so it's highlighted. -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand"><span class="knight">&#9822;</span> Princeton Chess Club</a>
@@ -15,108 +31,135 @@
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="events.html">Events</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="members.html">Members</a></li>
-      <li><a href="join.html">Join</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="archive.html">Archive</a></li>
     </ul>
   </div>
 </nav>
 
+<!-- HERO — the animated banner. The orange "Chess" is the shimmering word. -->
 <header class="hero">
-  <p class="eyebrow">Est. 1953 &middot; Princeton University</p>
-  <h1>Where <span class="shimmer">Tigers</span><br>Think Three Moves Ahead</h1>
-  <span class="rotator" id="rotator"></span>
-  <p>Princeton's home for chess — open to every skill level, from first-time players to titled masters. Weekly meetups, blitz nights, and competitive tournaments.</p>
-  <a href="join.html" class="btn">Join the Club</a>
-  <a href="events.html" class="btn secondary">See Upcoming Events</a>
+  <p class="eyebrow">Princeton University &middot; Fridays at Campus Club</p>
+  <h1>Princeton University<br><span class="shimmer">Chess</span> Club</h1>
+  <p>Open to every Princeton student &mdash; from first-time players to titled masters. We meet every Friday night to play, learn, and compete.</p>
+  <a href="contact.html" class="btn">Join the Listserv</a>
+  <a href="#mission" class="btn secondary">What We're About</a>
   <div class="scroll-cue">&#8675;</div>
 </header>
 
+<!-- Decorative wavy divider between the dark hero and the light page -->
 <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
   <path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,40 L1440,70 L0,70 Z"></path>
 </svg>
 
-<section class="stats">
-  <div class="stats-inner">
-    <div class="stat"><div class="num" data-count="180">0</div><div class="label">Active Members</div></div>
-    <div class="stat"><div class="num" data-count="72">0</div><div class="label">Years on Campus</div></div>
-    <div class="stat"><div class="num" data-count="24">0</div><div class="label">Events / Year</div></div>
-    <div class="stat"><div class="num" data-count="2105">0</div><div class="label">Top USCF Rating</div></div>
-  </div>
-</section>
+<main>
+<!-- MISSION SECTION -->
+<section class="container" id="mission">
+  <p class="eyebrow">Who We Are</p>
+  <h2 class="section-title">Our mission</h2>
+  <p class="mission-statement">
+    We believe chess belongs to everyone. Our club exists to give every Princeton student &mdash;
+    beginner or master &mdash; a <b>welcoming place to play, learn, and belong</b>. We meet every Friday
+    to push pawns, trade blitz games, teach newcomers, and represent Princeton at tournaments across the country.
+  </p>
 
-<div class="marquee">
-  <div class="track">
-    <span>&#9818; Wednesday Club Night, 7PM &middot; Frist 302</span>
-    <span>&#9819; Friday Blitz at Campus Club</span>
-    <span>&#9820; Tiger Open &mdash; June 20</span>
-    <span>&#9821; Free beginner lessons every week</span>
-    <span>&#9822; Ivy League match vs. Yale</span>
-    <span>&#9823; All skill levels welcome</span>
-  </div>
-</div>
-
-<main class="container">
-  <p class="eyebrow">About Us</p>
-  <h2 class="section-title">More than just a game</h2>
-  <p class="section-sub">We're a community of students, faculty, and staff who love chess — and we'd love for you to be part of it.</p>
-
-  <div class="grid cols-3">
+  <div class="grid cols-3 values" style="margin-top:40px;">
     <div class="card">
       <div class="icon">&#9817;</div>
-      <h3>All Levels Welcome</h3>
-      <p>Never played, or pushing 2000? We pair beginners with experienced members and run lessons throughout the semester.</p>
+      <h3>Everyone's welcome</h3>
+      <p>Never moved a piece? Perfect. We'll teach you, and someone will happily lose to you while you learn.</p>
+    </div>
+    <div class="card">
+      <div class="icon">&#9822;</div>
+      <h3>We compete</h3>
+      <p>We send teams to the Pan-Ams, the Ivy League Challenge, and rated congresses up and down the East Coast.</p>
     </div>
     <div class="card">
       <div class="icon">&#9819;</div>
-      <h3>Compete &amp; Improve</h3>
-      <p>Play in our internal ladder, USCF-rated events, and the Ivy League collegiate circuit. We travel to intercollegiate tournaments each year.</p>
-    </div>
-    <div class="card">
-      <div class="icon">&#9821;</div>
-      <h3>Community First</h3>
-      <p>Blitz nights, puzzle battles, and pizza. The board is the excuse — the people are the point.</p>
+      <h3>It's about the people</h3>
+      <p>The chess is the excuse. The friendships, rivalries, and late-night post-mortems &mdash; that's the club.</p>
     </div>
   </div>
 
-  <div class="split" style="margin-top:56px;">
-    <div>
-      <p class="eyebrow">Our Mission</p>
-      <h2 class="section-title">Growing the game on campus</h2>
-      <p>The Princeton Chess Club exists to make chess accessible, social, and competitive for everyone on campus. We host weekly meetings, run free lessons for beginners, organize tournaments, and represent Princeton at collegiate events across the Northeast.</p>
-      <p>Whether you want to learn the rules, sharpen your endgame, or earn a rating, there's a seat for you at the board.</p>
-    </div>
-    <div class="card">
-      <p class="eyebrow">When &amp; Where</p>
-      <ul class="info-list">
-        <li><b>Meetings</b><span>Fridays, 7:00–9:00 PM</span></li>
-        <li><b>Location</b><span>Campus Club</span></li>
-        <li><b>Dues</b><span>Free for all Princeton students</span></li>
-        <li><b>Equipment</b><span>Boards &amp; clocks provided</span></li>
-      </ul>
-      <a href="join.html" class="btn" style="margin-top:18px;">Get Involved</a>
+  <p class="section-sub" style="margin-top:34px; font-style:italic;">
+    This organization is open to all Princeton University students interested in supporting our mission,
+    regardless of identity, such as race, sex, ethnicity, national origin, or other protected characteristics.
+  </p>
+</section>
+
+<!-- SPONSORS — logos come straight from the original Weebly site -->
+<section class="sponsors">
+  <div class="sponsors-inner">
+    <p class="eyebrow">Our Club is Proudly Supported By</p>
+    <div class="sponsor-logos">
+      <a href="#" target="_blank" rel="noopener">
+        <img src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/published/logo-horizontal-black-registered.png?1670037871" alt="Sponsor logo">
+      </a>
+      <a href="https://odus.princeton.edu/" target="_blank" rel="noopener">
+        <img src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/editor/odus-primary-pms-wbg.jpg?1750388398" alt="Office of the Dean of Undergraduate Students">
+      </a>
     </div>
   </div>
+</section>
+
+<!-- OFFICERS — the current board. Cards use class="tilt" for the 3D hover effect.
+     Most use a monogram avatar; Oren has a real photo from the original site. -->
+<section class="container">
+  <p class="eyebrow">Our Officers</p>
+  <h2 class="section-title">Meet the team</h2>
+  <p class="section-sub">The students who keep the club running &mdash; come say hi at a Friday meeting.</p>
+
+  <div class="grid cols-3">
+    <div class="card member tilt"><div class="avatar">WA</div><h3>William Aepli</h3><div class="role">Co-President &middot; '26</div></div>
+    <div class="card member tilt"><div class="avatar">AT</div><h3>Aydin Turgut</h3><div class="role">Co-President &middot; '26</div></div>
+    <div class="card member tilt"><div class="avatar">RK</div><h3>Rohan Kumar</h3><div class="role">Vice President &middot; '26</div></div>
+    <div class="card member tilt"><div class="avatar">AH</div><h3>Ashwin Hebbar</h3><div class="role">Graduate Student Advisor</div></div>
+    <div class="card member tilt"><div class="avatar">MH</div><h3>Merric Hu</h3><div class="role">Treasurer &middot; '28</div></div>
+    <div class="card member tilt"><div class="avatar">ST</div><h3>Steve Ta</h3><div class="role">Outreach Chair &middot; '28</div></div>
+    <div class="card member tilt"><div class="avatar">QB</div><h3>Quinn Blumenthal</h3><div class="role">Secretary &middot; '28</div></div>
+    <div class="card member tilt"><div class="avatar">MD</div><h3>Malcom T. Dzimiri</h3><div class="role">Social Chair &middot; '28</div></div>
+    <div class="card member tilt">
+      <div class="photo-frame" style="width:96px;height:96px;border-radius:50%;margin:0 auto 14px;">
+        <img class="photo" data-label="Oren Tieyah" src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/published/me-image.jpg?1750805683" alt="Oren Tieyah">
+      </div>
+      <h3>Oren Tieyah</h3><div class="role">Partnerships Chair &middot; '27</div>
+    </div>
+  </div>
+</section>
+
+<!-- MEETINGS + JOIN -->
+<section class="container">
+  <div class="split">
+    <div>
+      <p class="eyebrow">Come By</p>
+      <h2 class="section-title">When &amp; where</h2>
+      <p>We meet every <b>Friday from 7:00 to 9:00 PM at Campus Club</b> (5 Prospect Ave). Boards and clocks are provided &mdash; just bring yourself.</p>
+      <p>All University affiliates &mdash; students, alumni, faculty, staff &mdash; and their guests are welcome.</p>
+      <a href="contact.html" class="btn" style="margin-top:8px;">Get in Touch</a>
+    </div>
+    <div class="card">
+      <ul class="info-list">
+        <li><b>Meetings</b><span>Fridays, 7:00&ndash;9:00 PM</span></li>
+        <li><b>Location</b><span>Campus Club, 5 Prospect Ave</span></li>
+        <li><b>Dues</b><span>Free for all students</span></li>
+        <li><b>Email</b><span>princeton.chess.club@gmail.com</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
 </main>
 
+<!-- FOOTER — identical on every page -->
 <footer class="footer">
   <div class="footer-inner">
-    <div>
-      <h4>Princeton Chess Club</h4>
-      <p>Frist Campus Center<br>Princeton University, Princeton, NJ 08544</p>
-    </div>
-    <div>
-      <h4>Explore</h4>
-      <p><a href="events.html">Events</a><br><a href="members.html">Members</a><br><a href="join.html">Join</a></p>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <p><a href="mailto:chess@princeton.edu">chess@princeton.edu</a></p>
-    </div>
-    <div class="copy">&copy; 2026 Princeton Chess Club. A student organization of Princeton University.</div>
+    <div><h4>Princeton Chess Club</h4><p>Campus Club, 5 Prospect Ave.<br>Princeton, NJ 08544</p></div>
+    <div><h4>Explore</h4><p><a href="events.html">Events</a><br><a href="contact.html">Contact</a><br><a href="archive.html">Archive</a></p></div>
+    <div><h4>Contact</h4><p><a href="mailto:princeton.chess.club@gmail.com">princeton.chess.club@gmail.com</a></p></div>
+    <div class="copy">&copy; 2026 Princeton University Chess Club. A student organization of Princeton University.</div>
   </div>
 </footer>
 
+<!-- All interactivity (cursor, animations, photo fallbacks) is in this one file -->
 <script src="script.js"></script>
 </body>
 </html>

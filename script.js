@@ -1,3 +1,28 @@
+/* ============================================================================
+   Princeton Chess Club — behaviour script (loaded by every page)
+   ----------------------------------------------------------------------------
+   Plain-English tour of what this file does, in order:
+
+     1. Mobile nav toggle  — the ☰ button opens/closes the menu on phones.
+     2. Photo fallback      — if any <img class="photo"> fails to load, we replace
+                              it with a tidy chess-piece placeholder so the page
+                              never shows a broken-image icon.
+     3. reduceMotion        — respects the visitor's "reduce motion" setting; when
+                              on, we skip animations and the custom cursor.
+     4. DOMContentLoaded     — everything below runs once the page has loaded:
+          a. Custom cursor   — hides the arrow and draws a chess piece that follows
+                               the mouse (knight normally, queen over clickable things).
+          b. Scroll reveal   — elements fade/slide in as they scroll into view.
+          c. Floating pieces  — drifting chess pieces in the hero, with mouse parallax.
+          d. Stat counters    — numbers count up when scrolled into view (if present).
+          e. 3D tilt          — officer cards tilt toward the mouse.
+          f. Magnetic buttons — buttons lean slightly toward the cursor.
+          g. Hero scroll fade — the hero gently fades as you scroll past it.
+
+   You normally won't need to touch this file to edit content — text and photos
+   live in the .html files, and colours/sizing live in styles.css.
+   ============================================================================ */
+
 // ---- Mobile nav toggle ----
 document.addEventListener('click', function (e) {
   if (e.target.closest('.nav-toggle')) {
@@ -20,6 +45,18 @@ document.addEventListener('submit', function (e) {
 });
 
 var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---- Graceful photo fallback: if an image fails, show a styled placeholder ----
+document.addEventListener('error', function (e) {
+  var img = e.target;
+  if (img.tagName === 'IMG' && img.classList.contains('photo')) {
+    var label = img.getAttribute('data-label') || 'Photo coming soon';
+    var fb = document.createElement('div');
+    fb.className = 'photo-fallback';
+    fb.innerHTML = '<span class="pc">♞</span><span class="lbl">' + label + '</span>';
+    if (img.parentNode) img.parentNode.replaceChild(fb, img);
+  }
+}, true);
 
 document.addEventListener('DOMContentLoaded', function () {
 

@@ -1,9 +1,18 @@
 <!DOCTYPE html>
+<!--
+  EVENTS PAGE  (events.html)
+  ==========================
+  Mirrors the original site's Events page: two announcement boxes at the top,
+  then the club's tournament history grouped by school year. Each tournament is
+  an ".event-entry" card. Photos use class="photo" so that IF a photo ever fails
+  to load, script.js swaps in a tidy chess-piece placeholder instead of a broken
+  image icon. To add a new tournament, copy one ".event-entry" block and edit it.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Events &amp; Calendar — Princeton Chess Club</title>
+<title>Events — Princeton University Chess Club</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,78 +24,172 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="events.html" class="active">Events</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="members.html">Members</a></li>
-      <li><a href="join.html">Join</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="archive.html">Archive</a></li>
     </ul>
   </div>
 </nav>
 
 <main class="container">
-  <p class="eyebrow">Calendar</p>
-  <h1 class="section-title">Upcoming Events</h1>
-  <p class="section-sub">Spring 2026 semester. All events are open to members — drop in any time.</p>
+  <p class="eyebrow">Tournaments &amp; Meetings</p>
+  <h1 class="section-title">Events</h1>
 
-  <div class="event">
-    <div class="date"><div class="day">03</div><div class="mon">Jun</div></div>
-    <div class="body">
-      <h3>Weekly Club Meeting</h3>
-      <p>Casual play, ladder games, and a featured tactics lesson. Frist 302, 7:00 PM.</p>
-      <span class="tag">Weekly</span>
+  <!-- Two announcement boxes, same as the original site -->
+  <div class="announce">
+    <div class="card">
+      <h3>Upcoming Events</h3>
+      <p><em>Stay tuned on the Chess Club listserv to sign up for tournaments &amp; events!</em></p>
+      <a href="contact.html" class="btn secondary" style="margin-top:6px;">Join the Listserv</a>
+    </div>
+    <div class="card">
+      <h3>Club Announcements</h3>
+      <p><b>Weekly meetings Friday 7:00 PM at Campus Club.</b></p>
     </div>
   </div>
 
-  <div class="event">
-    <div class="date"><div class="day">05</div><div class="mon">Jun</div></div>
-    <div class="body">
-      <h3>Friday Blitz Night</h3>
-      <p>5+0 and 3+2 blitz tournament. Bring your A-game. Campus Club, 8:00 PM.</p>
-      <span class="tag">Tournament</span>
+  <!-- ===================== 2024–2025 ===================== -->
+  <h2 class="year-heading">Past Events &mdash; 2024&ndash;2025</h2>
+
+  <div class="event-entry">
+    <h3>Princeton Open Blitz</h3>
+    <div class="meta">Princeton, NJ &middot; April 19th, 2025</div>
+    <p>To end the school year, three students attended the local Princeton Open Blitz. Merric Hu '28 came in sole 2nd place, finishing half a point behind a strong FIDE Master. Congratulations!</p>
+  </div>
+
+  <div class="event-photo">
+    <div class="photo-frame">
+      <img class="photo" data-label="Inter-Ivy team photo" src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/editor/ivy-team_1.jpg" alt="Princeton at the Inter-Ivy Chess Championship">
+    </div>
+    <div class="credit">Princeton University at the Inter-Ivy Chess Championship, held by Columbia University.</div>
+  </div>
+
+  <div class="event-entry">
+    <h3>2025 Inter-Ivy Chess Championship</h3>
+    <div class="meta">New York, NY &middot; February 23rd, 2025</div>
+    <p>Princeton University sent three teams to the Ivy League chess tournament! In the Championship Division, Princeton Team A came in 5th place, with the highest tiebreaks of anyone in the tournament. In the Reserve Division, Princeton Team B and Princeton Team C tied for 3rd place. Congratulations to the teams:</p>
+    <p><b>Team A:</b> Merric Hu '28, William Aepli '26, Crystal Deng '26, and Kyle Li '25<br>
+       <b>Team B:</b> Cael Province '28, Rohan Kumar '26, Ashwin Hebbar 'GS, and Philip Wang '25<br>
+       <b>Team C:</b> Steve Ta '28, Alexander Ding '26, Quinn Blumenthal '28, and Malcom Tafadzwa Dzimiri '28</p>
+  </div>
+
+  <div class="event-photo">
+    <div class="photo-frame">
+      <img class="photo" data-label="Pan-Ams 2025" src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/published/3eae20a4-2b0f-45d8-9aca-31fab2629b2e.jpg?1750386271" alt="Princeton players with grandmasters at Pan-Ams">
+    </div>
+    <div class="credit">Left to right: GM Harshit Raja, Alexander Tao '25, Rohan Kumar '26, Philip Wang '25, WGM Dina Belenkaya, and Kyle Li '25 — a chance encounter with celebrities at Pan-Ams!</div>
+  </div>
+
+  <div class="event-entry">
+    <h3>2025 Pan-American Intercollegiate Championship</h3>
+    <div class="meta">Charlotte, NC &middot; January 2&ndash;5th, 2025</div>
+    <p>With the support of our sponsors, four students represented Princeton at the National Championship: Kyle Li '25, Rohan Kumar '26, Philip Wang '25, and Alexander Tao '25. The team came 9th place. Kumar had an incredible 5/6 performance, while Wang scored 4.5/6. This is one of our favorite events of the year!</p>
+  </div>
+
+  <div class="event-entry">
+    <h3>55th Annual National Chess Congress</h3>
+    <div class="meta">Philadelphia, PA &middot; November 30th&ndash;December 1st, 2024</div>
+    <p>The National Chess Congress was a successful endeavor for Princeton's chess club. William Aepli '26 tied for 3rd place in Under 2200, Philip Wang '25 tied for 6th in Under 1800, Alexander Ding '26 tied for 1st in Under 1600, Mujtuba Yousufi '25 tied for 8th in Under 1600, and William Aepli '26 tied for 4th in Open Blitz. Thank you to our sponsors, and to the players who joined us for Thanksgiving Break!</p>
+  </div>
+
+  <div class="event-entry">
+    <h3>28th Annual Eastern Chess Congress</h3>
+    <div class="meta">Princeton, NJ &middot; October 26&ndash;27th, 2024</div>
+    <p>A large group of Princeton Chess Club members attended the Eastern Chess Congress. Hammad Farooqi '27 tied for 6th in Under 1700, Mujtuba Yousufi '25 tied for 1st in Under 1500, and Alexander Tao '25 and Steve Ta '25 tied for 3rd in Under 1500. Good job to all Princeton students who joined us!</p>
+  </div>
+
+  <div class="event-entry">
+    <h3>Pennsylvania State Action Championship (East)</h3>
+    <div class="meta">Exton, PA &middot; October 20th, 2024</div>
+    <p>The Princeton University chess team kicked off the year with a fantastic result. William Aepli '26 tied for 2nd in the Open section, Steve Ta '28 won the Under 1600 section, and Alexander Tao '25 won the Under 1400. Combined, Princeton won the trophy for top school! We loved this team tournament!</p>
+  </div>
+
+  <!-- ===================== 2023–2024 ===================== -->
+  <h2 class="year-heading">Past Events &mdash; 2023&ndash;2024</h2>
+
+  <div class="event-photo">
+    <div class="photo-frame">
+      <img class="photo" data-label="Pan-Ams 2024, McAllen TX" src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/published/use-this_1.jpg" alt="Princeton team in McAllen, Texas">
+    </div>
+    <div class="credit">Left to right: Ashwin Hebbar 'GS, William Aepli '26, Garner Thompson '24, and Alexander Tao '25. Photo taken in McAllen, TX.</div>
+  </div>
+
+  <div class="event-entry">
+    <h3>2024 Pan-American Intercollegiate Championship</h3>
+    <div class="meta">McAllen, TX &middot; January 4&ndash;7th, 2024</div>
+    <p>To kick off the new year, a team of four represented Princeton at the National Championship: William Aepli '26, Garner Thompson '24, Ashwin Hebbar 'GS, and Alexander Tao '25. The team had a great performance, with Thompson and Tao earning 4.5/6 points, and Aepli earning 4/6. Thank you to our sponsors for making this trip possible!</p>
+  </div>
+
+  <div class="event-entry">
+    <h3>54th Annual National Chess Congress</h3>
+    <div class="meta">Philadelphia, PA &middot; November 25&ndash;26th, 2023</div>
+    <p>A small group of Princeton students attended the National Chess Congress. Alexander Tao '25 tied for 1st in Under 1400, Alexander Ding '26 tied for 3rd in Under 1400, and Hammad Farooqi '27 tied for 3rd in Under 1200. Congrats to all!</p>
+  </div>
+
+  <div class="event-entry">
+    <h3>27th Annual Eastern Chess Congress</h3>
+    <div class="meta">Princeton, NJ &middot; October 28&ndash;29th, 2023</div>
+    <p>A large contingent of Princeton students attended. Crystal Deng '26 tied for 5th in Under 2100, William Aepli '26 tied for 1st in Under 1900, John Ahona '26 and Ashwin Hebbar 'GS tied for 3rd in Under 1700, Alexander Ding '26 won sole 1st in Under 1500, and Mujtuba Yousufi '25 and Alexander Tao '25 tied for 2nd in Under 1500. Crystal Deng '26 and William Aepli '26 took sole 1st for Top Male-Female team, and Aepli tied with GM Fidel Corrales Jimenez for 1st in the blitz tournament. Thank you to our sponsors!</p>
+  </div>
+
+  <!-- ===================== 2022–2023 ===================== -->
+  <h2 class="year-heading">Past Events &mdash; 2022&ndash;2023</h2>
+
+  <div class="event-photo">
+    <div class="photo-frame">
+      <img class="photo" data-label="Ivy League Challenge team" src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/team_orig.jpg" alt="Princeton team at the Ivy League Chess Challenge">
+    </div>
+    <div class="credit">Left to right: FM Aydin Turgut '26, Sam Massick '25, GM Andrew Tang '23, IM Daniel Gurevich GS. Not pictured: Kyle Li '25.</div>
+  </div>
+
+  <div class="event-entry">
+    <h3>5th Ivy League Chess Challenge</h3>
+    <div class="meta">Toronto, ON, Canada &middot; March 24&ndash;26th, 2023</div>
+    <p>The Princeton Chess Club competed in the first in-person Ivy League Chess Challenge since the pandemic, hosted by the University of Toronto Chess Club at their historic Hart House. The team placed 2nd overall, beating schools like Harvard and the University of Waterloo. IM Daniel Gurevich GS won Top Board 2, and GM Andrew Tang '23 placed first in the Ivy League Blitz tournament. Congratulations to our team!</p>
+    <p class="donors">Thank you to our donors for supporting this trip: Susquehanna International Group, Jane Street, and Citadel. Additional thanks to the University of Toronto Chess Club for hosting our players!</p>
+  </div>
+
+  <div class="grid cols-2">
+    <div class="event-photo">
+      <div class="photo-frame">
+        <img class="photo" data-label="Toronto, board 1-4" src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/img-6107_orig.jpg" alt="Princeton players in Toronto">
+      </div>
+      <div class="credit">Left to right: Sam Massick '25, FM Aydin Turgut '26, IM Daniel Gurevich GS, GM Andrew Tang '23.</div>
+    </div>
+    <div class="event-photo">
+      <div class="photo-frame">
+        <img class="photo" data-label="Toronto, reserve team" src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/img-6114_orig.jpg" alt="Princeton reserve players in Toronto">
+      </div>
+      <div class="credit">Left to right: Kyle Li '25, Rohan Kumar '26, Garner Thompson '24, Mujtuba Yousufi '24.</div>
     </div>
   </div>
 
-  <div class="event">
-    <div class="date"><div class="day">12</div><div class="mon">Jun</div></div>
-    <div class="body">
-      <h3>Beginner Workshop: Opening Principles</h3>
-      <p>Free lesson for newcomers — controlling the center, development, and king safety. No experience needed.</p>
-      <span class="tag">Lesson</span>
-    </div>
+  <div class="event-entry">
+    <h3>2023 Pan-American Intercollegiate Chess Tournament</h3>
+    <div class="meta">Seattle, WA &middot; January 5&ndash;8th, 2023</div>
+    <p>Thanks to our generous donors, Princeton sent 2 teams (A-team and B-team) to the Pan-American Intercollegiate Chess tournament! A-team tied for 7th overall, placing among the top non-scholarship teams (and most importantly, we #beatHarvard). GM Andrew Tang '23 placed 1st in the Seattle New Years Blitz Chess Tournament! Congrats to all of our players!</p>
+    <p class="donors">Thank you to our generous donors: Susquehanna International Group, Jane Street, and Citadel.</p>
   </div>
 
-  <div class="event">
-    <div class="date"><div class="day">20</div><div class="mon">Jun</div></div>
-    <div class="body">
-      <h3>Tiger Open (Rated)</h3>
-      <p>4-round Swiss, G/30+5. USCF-rated. Trophies for top finishers and best upset. Registration on the Join page.</p>
-      <span class="tag">Rated</span>
-    </div>
+  <div class="event-entry">
+    <h3>National Chess Congress 2022</h3>
+    <div class="meta">Philadelphia, PA &middot; November 25&ndash;27th, 2022</div>
+    <p>The Princeton Chess Team spent their Thanksgiving Break representing the Tigers at the National Chess Congress in Philadelphia. Another strong showing by our team! Go Tigers!</p>
+    <p class="donors">Thank you to our generous donors: Susquehanna International Group, Jane Street, and Citadel.</p>
   </div>
 
-  <div class="event">
-    <div class="date"><div class="day">27</div><div class="mon">Jun</div></div>
-    <div class="body">
-      <h3>Ivy League Collegiate Match vs. Yale</h3>
-      <p>Team match — our top boards travel to New Haven. Come cheer or play on a reserve board.</p>
-      <span class="tag">Collegiate</span>
-    </div>
-  </div>
-
-  <h2 class="section-title" style="margin-top:56px;">Recurring</h2>
-  <p class="section-sub">Your weekly rhythm at the club.</p>
-  <div class="grid cols-3">
-    <div class="card"><h3>Wednesdays</h3><p><b>Club Meeting</b><br>7:00–9:30 PM &middot; Frist 302<br>Ladder games + lesson.</p></div>
-    <div class="card"><h3>Fridays</h3><p><b>Blitz Night</b><br>8:00 PM &middot; Campus Club<br>Fast, casual, fun.</p></div>
-    <div class="card"><h3>Online</h3><p><b>Daily Puzzles</b><br>Posted in our Discord every morning. Compete on the leaderboard.</p></div>
+  <div class="event-entry">
+    <h3>Eastern Chess Congress 2022</h3>
+    <div class="meta">Princeton, NJ &middot; October 29&ndash;30th, 2022</div>
+    <p>Our team stayed local for the Eastern Chess Congress, with 11 players representing Princeton. The Tigers had an incredible tournament, with GM (and Chess Club President) Andrew Tang '23 tying for 1st Place in the Open Section and Will Aepli '26 tying for 1st Place in the U1900 Section! Congratulations to all of our players!</p>
   </div>
 </main>
 
 <footer class="footer">
   <div class="footer-inner">
-    <div><h4>Princeton Chess Club</h4><p>Frist Campus Center<br>Princeton, NJ 08544</p></div>
-    <div><h4>Explore</h4><p><a href="index.html">Home</a><br><a href="members.html">Members</a><br><a href="join.html">Join</a></p></div>
-    <div><h4>Contact</h4><p><a href="mailto:chess@princeton.edu">chess@princeton.edu</a></p></div>
-    <div class="copy">&copy; 2026 Princeton Chess Club. A student organization of Princeton University.</div>
+    <div><h4>Princeton Chess Club</h4><p>Campus Club, 5 Prospect Ave.<br>Princeton, NJ 08544</p></div>
+    <div><h4>Explore</h4><p><a href="index.html">Home</a><br><a href="contact.html">Contact</a><br><a href="archive.html">Archive</a></p></div>
+    <div><h4>Contact</h4><p><a href="mailto:princeton.chess.club@gmail.com">princeton.chess.club@gmail.com</a></p></div>
+    <div class="copy">&copy; 2026 Princeton University Chess Club. A student organization of Princeton University.</div>
   </div>
 </footer>
 
