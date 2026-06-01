@@ -99,6 +99,8 @@ img { max-width: 100%; display: block; }
 }
 .nav-brand .knight { color: var(--orange); font-size: 1.5rem; display: inline-block; transition: transform .4s ease; }
 .nav-brand:hover .knight { transform: rotate(360deg) scale(1.2); }
+.nav-brand .brand-logo { height: 46px; width: auto; display: inline-block; transition: transform .4s ease; }
+.nav-brand:hover .brand-logo { transform: rotate(-6deg) scale(1.1); }
 .nav-links { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
 .nav-links a {
   color: #eaeaea; text-decoration: none; font-family: "Helvetica Neue", Arial, sans-serif;
@@ -333,7 +335,48 @@ table.ratings tr:hover td { background: #fdf3ea; }
 .sponsors-inner { max-width: var(--maxw); margin: 0 auto; padding: 44px 24px; text-align: center; }
 .sponsor-logos { display: flex; gap: 50px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 22px; }
 .sponsor-logos img { max-height: 70px; max-width: 230px; filter: grayscale(1); opacity: .75; transition: filter .3s, opacity .3s, transform .3s; }
-.sponsor-logos a:hover img { filter: none; opacity: 1; transform: scale(1.05); }
+.sponsor-logos a:hover img { filter: none; opacity: 1; transform: scale(1.08); }
+
+/* Animated sponsors band (the one moved above the mission) */
+.sponsors-hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(120deg, #fff 0%, #fff7ef 45%, #ffe9d2 50%, #fff7ef 55%, #fff 100%);
+  background-size: 220% 100%; animation: sponsorSheen 7s ease-in-out infinite;
+}
+@keyframes sponsorSheen { 0%,100% { background-position: 0% 0; } 50% { background-position: 100% 0; } }
+
+/* Title: animated gradient text that keeps moving + a growing underline */
+.sponsor-title {
+  font-size: 1rem; letter-spacing: 4px; position: relative; display: inline-block;
+  background: linear-gradient(90deg, var(--orange) 0%, #c75f10 25%, #111 50%, #c75f10 75%, var(--orange) 100%);
+  background-size: 220% auto; -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: titleFlow 5s linear infinite, titlePulse 2.6s ease-in-out infinite;
+}
+@keyframes titleFlow { to { background-position: 220% center; } }
+@keyframes titlePulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+.sponsor-title::after {
+  content: ""; position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%);
+  height: 3px; width: 0; background: var(--orange); border-radius: 3px;
+  animation: titleLine 2.6s ease-in-out infinite;
+}
+@keyframes titleLine { 0%,100% { width: 30px; opacity: .6; } 50% { width: 120px; opacity: 1; } }
+
+/* Logos: float in, then gently bob, with a glow pulse behind them */
+.sponsor-item { position: relative; display: inline-flex; animation: logoFloat 4.5s ease-in-out infinite; }
+.sponsor-item:nth-child(2) { animation-delay: .6s; }
+.sponsor-item::before {
+  content: ""; position: absolute; inset: -18px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,119,34,.28), transparent 70%);
+  opacity: 0; transition: opacity .35s; z-index: -1;
+}
+.sponsor-item:hover::before { opacity: 1; }
+@keyframes logoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sponsors-hero, .sponsor-title, .sponsor-title::after, .sponsor-item { animation: none; }
+  .sponsor-title { -webkit-text-fill-color: var(--orange-dark); color: var(--orange-dark); }
+}
 
 /* ---- Tournament / event entries (Events page) ----
    Each past tournament is an ".event-entry": a card with an optional photo,

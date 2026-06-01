@@ -26,7 +26,7 @@
      The link for the current page gets class="active" so it's highlighted. -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand"><span class="knight">&#9822;</span> Princeton Chess Club</a>
+    <a href="index.html" class="nav-brand"><img class="brand-logo" src="logo.svg" alt="Princeton Chess Club logo"> Princeton Chess Club</a>
     <button class="nav-toggle" aria-label="Menu">&#9776;</button>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
@@ -41,7 +41,7 @@
 <header class="hero">
   <p class="eyebrow">Princeton University &middot; Fridays at Campus Club</p>
   <h1>Princeton University<br><span class="shimmer">Chess</span> Club</h1>
-  <p>Open to every Princeton student &mdash; from first-time players to titled masters. We meet every Friday night to play, learn, and compete.</p>
+  <p>Open to every Princeton student, from first-time players to titled masters. Meeting every Friday 7:00 to 9:00 PM at Campus Club to play, learn, and compete.</p>
   <a href="contact.html" class="btn">Join the Listserv</a>
   <a href="#mission" class="btn secondary">What We're About</a>
   <div class="scroll-cue">&#8675;</div>
@@ -53,53 +53,36 @@
 </svg>
 
 <main>
+<!-- SPONSORS — moved above the mission, with an animated reveal. -->
+<section class="sponsors sponsors-hero">
+  <div class="sponsors-inner">
+    <p class="eyebrow sponsor-title">Our Club is Proudly Supported By</p>
+    <div class="sponsor-logos">
+      <a href="#" target="_blank" rel="noopener" class="sponsor-item">
+        <img src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/published/logo-horizontal-black-registered.png?1670037871" alt="Sponsor logo">
+      </a>
+      <a href="https://odus.princeton.edu/" target="_blank" rel="noopener" class="sponsor-item">
+        <img src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/editor/odus-primary-pms-wbg.jpg?1750388398" alt="Office of the Dean of Undergraduate Students">
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- MISSION SECTION -->
 <section class="container" id="mission">
   <p class="eyebrow">Who We Are</p>
   <h2 class="section-title">Our mission</h2>
   <p class="mission-statement">
-    We believe chess belongs to everyone. Our club exists to give every Princeton student &mdash;
-    beginner or master &mdash; a <b>welcoming place to play, learn, and belong</b>. We meet every Friday
-    to push pawns, trade blitz games, teach newcomers, and represent Princeton at tournaments across the country.
+    We believe <b>everyone should know how to play chess, and have access to over-the-board games</b>.
+    Our club exists to give every Princeton student, beginner or master, a welcoming place to play, learn,
+    and belong. We meet every Friday to push pawns, trade blitz games, teach newcomers, and represent
+    Princeton at tournaments across the country.
   </p>
-
-  <div class="grid cols-3 values" style="margin-top:40px;">
-    <div class="card">
-      <div class="icon">&#9817;</div>
-      <h3>Everyone's welcome</h3>
-      <p>Never moved a piece? Perfect. We'll teach you, and someone will happily lose to you while you learn.</p>
-    </div>
-    <div class="card">
-      <div class="icon">&#9822;</div>
-      <h3>We compete</h3>
-      <p>We send teams to the Pan-Ams, the Ivy League Challenge, and rated congresses up and down the East Coast.</p>
-    </div>
-    <div class="card">
-      <div class="icon">&#9819;</div>
-      <h3>It's about the people</h3>
-      <p>The chess is the excuse. The friendships, rivalries, and late-night post-mortems &mdash; that's the club.</p>
-    </div>
-  </div>
 
   <p class="section-sub" style="margin-top:34px; font-style:italic;">
     This organization is open to all Princeton University students interested in supporting our mission,
     regardless of identity, such as race, sex, ethnicity, national origin, or other protected characteristics.
   </p>
-</section>
-
-<!-- SPONSORS — logos come straight from the original Weebly site -->
-<section class="sponsors">
-  <div class="sponsors-inner">
-    <p class="eyebrow">Our Club is Proudly Supported By</p>
-    <div class="sponsor-logos">
-      <a href="#" target="_blank" rel="noopener">
-        <img src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/published/logo-horizontal-black-registered.png?1670037871" alt="Sponsor logo">
-      </a>
-      <a href="https://odus.princeton.edu/" target="_blank" rel="noopener">
-        <img src="https://princetonchess.weebly.com/uploads/1/2/2/9/122975584/editor/odus-primary-pms-wbg.jpg?1750388398" alt="Office of the Dean of Undergraduate Students">
-      </a>
-    </div>
-  </div>
 </section>
 
 <!-- OFFICERS — the current board. Cards use class="tilt" for the 3D hover effect.
@@ -152,7 +135,7 @@
 <!-- FOOTER — identical on every page -->
 <footer class="footer">
   <div class="footer-inner">
-    <div><h4>Princeton Chess Club</h4><p>Campus Club, 5 Prospect Ave.<br>Princeton, NJ 08544</p></div>
+    <div><h4>Princeton University Chess Club</h4><p>Campus Club, 5 Prospect Ave.<br>Princeton, NJ 08544</p></div>
     <div><h4>Explore</h4><p><a href="events.html">Events</a><br><a href="contact.html">Contact</a><br><a href="archive.html">Archive</a></p></div>
     <div><h4>Contact</h4><p><a href="mailto:princeton.chess.club@gmail.com">princeton.chess.club@gmail.com</a></p></div>
     <div class="copy">&copy; 2026 Princeton University Chess Club. A student organization of Princeton University.</div>
