@@ -610,13 +610,13 @@ main .accent { color: var(--orange) !important; }
   border-radius: 0;
   border-left: none;
   border-right: none;
-  max-height: 400px;
+  max-height: 280px;
   overflow: hidden;
 }
 .event-photo .photo-frame img {
   width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 280px;
   object-fit: cover;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
@@ -646,13 +646,13 @@ main .accent { color: var(--orange) !important; }
   margin-bottom: 0;
 }
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame {
-  max-height: 320px;
+  max-height: 220px;
   background: #1a1a1a;
 }
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame img {
   width: 100%;
   height: auto;
-  max-height: 320px;
+  max-height: 220px;
   object-fit: cover;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
