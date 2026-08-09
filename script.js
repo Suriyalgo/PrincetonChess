@@ -1,27 +1,4 @@
-/* ============================================================================
-   Princeton Chess Club — behaviour script (loaded by every page)
-   ----------------------------------------------------------------------------
-   Plain-English tour of what this file does, in order:
-
-     1. Mobile nav toggle  — the ☰ button opens/closes the menu on phones.
-     2. Photo fallback      — if any <img class="photo"> fails to load, we replace
-                              it with a tidy chess-piece placeholder so the page
-                              never shows a broken-image icon.
-     3. reduceMotion        — respects the visitor's "reduce motion" setting; when
-                              on, we skip animations and the custom cursor.
-     4. DOMContentLoaded     — everything below runs once the page has loaded:
-          a. Custom cursor   — hides the arrow and draws a chess piece that follows
-                               the mouse (knight normally, queen over clickable things).
-          b. Scroll reveal   — elements fade/slide in as they scroll into view.
-          c. Floating pieces  — drifting chess pieces in the hero, with mouse parallax.
-          d. Stat counters    — numbers count up when scrolled into view (if present).
-          e. 3D tilt          — officer cards tilt toward the mouse.
-          f. Magnetic buttons — buttons lean slightly toward the cursor.
-          g. Hero scroll fade — the hero gently fades as you scroll past it.
-
-   You normally won't need to touch this file to edit content — text and photos
-   live in the .html files, and colours/sizing live in styles.css.
-   ============================================================================ */
+/* Princeton Chess Club — Main Script */
 
 // ---- Mobile nav toggle ----
 document.addEventListener('click', function (e) {
@@ -70,9 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var mx = window.innerWidth / 2, my = window.innerHeight / 2;
     var interactiveSel = 'a, button, .btn, .nav-links a, input, select, textarea, .card, .event, label';
 
-    // Returns true if any sampled point across the pawn's footprint sits on a clickable
     function overInteractive(x, y) {
-      var r = 15; // half the pawn's size — samples its edges/corners, not just the tip
+      var r = 15;
       var pts = [[0,0],[0,-r],[0,r],[-r,0],[r,0],[-r,-r],[r,-r],[-r,r],[r,r]];
       for (var i = 0; i < pts.length; i++) {
         var el = document.elementFromPoint(x + pts[i][0], y + pts[i][1]);
@@ -109,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }, { threshold: 0.12 });
     targets.forEach(function (el) {
-      // Reveal anything already on-screen at load so it never sits as a blank box.
+
       var r = el.getBoundingClientRect();
       if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
       else io.observe(el);
@@ -185,43 +161,22 @@ document.addEventListener('DOMContentLoaded', function () {
     nums.forEach(function (n) { n.textContent = parseInt(n.dataset.count, 10).toLocaleString(); });
   }
 
-  // ---- 3D tilt on team cards ----
   if (!reduceMotion) {
-    document.querySelectorAll('.tilt').forEach(function (card) {
-      card.addEventListener('mousemove', function (e) {
-        var r = card.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width - 0.5;
-        var py = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = 'perspective(700px) rotateY(' + (px * 14) + 'deg) rotateX(' + (-py * 14) + 'deg) translateY(-6px)';
-      });
-      card.addEventListener('mouseleave', function () { card.style.transform = ''; });
-    });
-
-    // ---- Magnetic buttons ----
-    document.querySelectorAll('.btn').forEach(function (btn) {
-      btn.addEventListener('mousemove', function (e) {
-        var r = btn.getBoundingClientRect();
-        btn.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * 0.3) + 'px,' + ((e.clientY - r.top - r.height / 2) * 0.4 - 3) + 'px)';
-      });
-      btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
-    });
   }
 
-  // ---- Curvy "spine" path that snakes through the subheaders ----
+  // ---- Spine path ----
   (function () {
     var svg = document.querySelector('.spine');
     var path = svg && svg.querySelector('.spine-path');
     var main = document.querySelector('main');
     if (!svg || !path || !main) return;
 
-    // The headers the curve should weave through, in vertical (DOM) order.
     var heads = Array.prototype.slice.call(
       main.querySelectorAll('.eyebrow, .section-title, .year-heading')
     );
     if (!heads.length) return;
     heads.forEach(function (h) { h.classList.add('spine-target'); });
 
-    // Anchor points the curve threads through — works across all pages:
     // home uses .section-title + .member-stack; events uses .year-heading +
     // .event-entry; archive uses .year-heading + .card.member.
     var anchorEls = Array.prototype.slice.call(
@@ -235,23 +190,17 @@ document.addEventListener('DOMContentLoaded', function () {
       var mainRect = main.getBoundingClientRect();
       var W = main.clientWidth;
       var H = main.scrollHeight;
-      // Bigger lateral weave now that the curve also winds through the bios.
+
       var amp = Math.min(70, W * 0.06);
 
-      // 1) Keep headers in their natural position (left-aligned, vertically
-      //    lined up) so titles stack vertically; the curve still weaves through
-      //    the content centres below each title.
       heads.forEach(function (h) { h.style.transform = 'none'; });
 
-      // 2) Record header centres (for the bolden-on-pass effect).
       headY = [];
       heads.forEach(function (h) {
         var r = h.getBoundingClientRect();
         headY.push(r.top - mainRect.top + r.height / 2);
       });
 
-      // 3) Build anchor points through headers + member cards (their real centres,
-      //    which fan across the 3-column grid and make the curve nice and wavy).
       pts = anchorEls.map(function (el) {
         var r = el.getBoundingClientRect();
         return {
@@ -259,22 +208,20 @@ document.addEventListener('DOMContentLoaded', function () {
           y: r.top - mainRect.top + r.height / 2
         };
       });
-      // For subtle-spine pages (events/archive), extend the path up behind the
-      // navbar; otherwise start just above the first anchor on the home page.
+
       var nav = document.querySelector('.nav');
       var navH = nav ? nav.offsetHeight : 60;
       var startY;
       if (svg.classList.contains('spine-subtle')) {
         startY = -navH;                      // events/archive: start behind top bar
       } else {
-        // Home page: extend up behind the hero banner
+
         var heroEl = document.querySelector('.hero');
         var heroH = heroEl ? heroEl.offsetHeight : 0;
         startY = -(navH + heroH);
       }
       pts.unshift({ x: pts[0].x, y: startY });
 
-      // Helper: one Catmull-Rom -> cubic Bézier segment from pts[i] to pts[i+1].
       function seg(i) {
         var p0 = pts[i - 1] || pts[i];
         var p1 = pts[i];
@@ -289,12 +236,11 @@ document.addEventListener('DOMContentLoaded', function () {
                ', ' + p2.x.toFixed(1) + ' ' + p2.y.toFixed(1);
       }
 
-      // Is the etched scene present & visible? If so, the line will burst into
       // a jagged "kapow" explosion around it before running down to When & where.
       var burst = null;
       var etch = document.querySelector('.etch-scene');
       if (etch && etch.offsetWidth > 0) {
-        // Comic-burst frame around the ENTIRE sketch (kept full-size).
+
         var er = etch.getBoundingClientRect();
         burst = {
           cx: er.left - mainRect.left + er.width / 2 + 4,
@@ -304,7 +250,6 @@ document.addEventListener('DOMContentLoaded', function () {
         };
       }
 
-      // 3) Build the path. Start at the first point.
       var d = 'M ' + pts[0].x.toFixed(1) + ' ' + pts[0].y.toFixed(1);
 
       for (var i = 0; i < pts.length - 1; i++) d += seg(i);
@@ -315,7 +260,6 @@ document.addEventListener('DOMContentLoaded', function () {
       svg.setAttribute('height', H);
       path.setAttribute('d', d);
 
-      // Prep the "draw on scroll" animation — keep transition OFF until first scroll.
       var len = path.getTotalLength();
       path.style.transition = 'none';
       path.style.strokeDasharray = len;
@@ -327,17 +271,16 @@ document.addEventListener('DOMContentLoaded', function () {
       if (typeof len !== 'number') len = path.getTotalLength();
       var mainRect = main.getBoundingClientRect();
       var vh = window.innerHeight;
-      // Keep the line completely hidden until the user actually scrolls down.
+
       var frac = 0;
       if (window.scrollY > 4) {
-        // Trigger point set between centre (0.5) and 3/4 (0.75) of the screen,
+
         // with a moderate speed multiplier — an in-between of the last two tries.
         frac = ((vh * 0.625 - mainRect.top) / mainRect.height) * 1.15;
       }
       frac = Math.max(0, Math.min(1, frac));
       path.style.strokeDashoffset = len * (1 - frac);
 
-      // Bolden each header once the drawn path has reached it.
       var drawnY = frac * main.scrollHeight;
       heads.forEach(function (h, i) {
         h.classList.toggle('spine-lit', headY[i] <= drawnY);
@@ -352,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
       if (!scrolled) {
         scrolled = true;
-        path.style.transition = '';  // enable transition only on first scroll
+        path.style.transition = '';
       }
       drawOnScroll(lastLen);
     }, { passive: true });
@@ -361,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
       clearTimeout(rt);
       rt = setTimeout(function () { layout(); lastLen = path.getTotalLength(); }, 150);
     });
-    // Re-measure once late-loading images (sponsors, officer photo) settle.
+
     window.addEventListener('load', function () { layout(); lastLen = path.getTotalLength(); });
   })();
 
