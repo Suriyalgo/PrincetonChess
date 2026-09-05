@@ -618,7 +618,7 @@ main .accent { color: var(--orange) !important; }
   height: auto;
   max-height: 380px;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center center;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
@@ -655,7 +655,7 @@ main .accent { color: var(--orange) !important; }
   height: auto;
   max-height: 300px;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center center;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
