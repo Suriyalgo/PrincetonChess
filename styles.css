@@ -646,7 +646,7 @@ main .accent { color: var(--orange) !important; }
 }
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame {
   
-  background: #1a1a1a;
+  
 }
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame img {
   width: 100%;
