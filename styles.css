@@ -605,12 +605,14 @@ main .accent { color: var(--orange) !important; }
 }
 .event-photo .photo-frame {
   border-radius: 12px;
-  background: transparent;
+  max-height: 500px;
+  overflow: hidden;
 }
 .event-photo .photo-frame img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
   display: block;
 }
 .event-photo .credit {
@@ -635,9 +637,15 @@ main .accent { color: var(--orange) !important; }
   margin-right: 0;
   margin-bottom: 0;
 }
+.grid.cols-2:has(.event-photo) .event-photo .photo-frame {
+  max-height: 400px;
+  overflow: hidden;
+}
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 .grid.cols-2:has(.event-photo) .event-photo .credit {
   max-width: none;
