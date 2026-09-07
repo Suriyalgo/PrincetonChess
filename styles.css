@@ -610,17 +610,15 @@ main .accent { color: var(--orange) !important; }
   border-radius: 0;
   border-left: none;
   border-right: none;
-  max-height: 380px;
+  max-height: 520px;
   overflow: hidden;
 }
 .event-photo .photo-frame img {
   width: 100%;
   height: auto;
-  max-height: 380px;
+  max-height: 520px;
   object-fit: cover;
   object-position: center center;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
 }
 .event-photo .credit {
   font-size: .85rem; color: var(--muted); margin-top: 6px; font-style: italic;
@@ -647,17 +645,15 @@ main .accent { color: var(--orange) !important; }
   margin-bottom: 0;
 }
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame {
-  max-height: 300px;
+  max-height: 420px;
   background: #1a1a1a;
 }
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame img {
   width: 100%;
   height: auto;
-  max-height: 300px;
+  max-height: 420px;
   object-fit: cover;
   object-position: center center;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
 }
 .grid.cols-2:has(.event-photo) .event-photo .credit {
   max-width: none;
