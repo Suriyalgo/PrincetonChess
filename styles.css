@@ -608,17 +608,13 @@ main .accent { color: var(--orange) !important; }
 }
 .event-photo .photo-frame {
   border-radius: 12px;
-  
-  
-  
-  
+  background: transparent;
 }
 .event-photo .photo-frame img {
   width: 100%;
   height: auto;
-  
-  
-  
+  object-fit: contain;
+  display: block;
 }
 .event-photo .credit {
   font-size: .85rem; color: var(--muted); margin-top: 6px; font-style: italic;
