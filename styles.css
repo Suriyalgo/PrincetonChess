@@ -478,7 +478,6 @@ main .accent { color: var(--orange) !important; }
 }
 
 /* Speech-bubble overlay: full opacity, on top, NOT faded/blended like the sketch. */
-.etch-scene { }
 .etch-scene svg.etch-bubbles {
   position: absolute; inset: 0; width: 100%; height: 100%;
   opacity: 1; mix-blend-mode: normal; color: inherit; pointer-events: none;
@@ -600,9 +599,7 @@ main .accent { color: var(--orange) !important; }
 .event-photo {
   margin: 0 0 22px;
   max-width: 1000px; width: 100%;
-  
-  
-  
+
   margin-left: auto;
   margin-right: auto;
 }
@@ -624,9 +621,7 @@ main .accent { color: var(--orange) !important; }
 /* Full-width photo grids (e.g. cols-2) */
 .grid.cols-2:has(.event-photo) {
   max-width: 1000px; width: 100%;
-  
-  
-  
+
   margin-left: auto;
   margin-right: auto;
   padding: 0;
@@ -640,16 +635,9 @@ main .accent { color: var(--orange) !important; }
   margin-right: 0;
   margin-bottom: 0;
 }
-.grid.cols-2:has(.event-photo) .event-photo .photo-frame {
-  
-  
-}
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame img {
   width: 100%;
   height: auto;
-  
-  
-  
 }
 .grid.cols-2:has(.event-photo) .event-photo .credit {
   max-width: none;
