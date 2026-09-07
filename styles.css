@@ -599,26 +599,26 @@ main .accent { color: var(--orange) !important; }
 /* A photo that sits above an event write-up — breaks out to full viewport width */
 .event-photo {
   margin: 0 0 22px;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  max-width: 1000px; width: 100%;
+  
+  
+  
+  margin-left: auto;
+  margin-right: auto;
 }
 .event-photo .photo-frame {
-  border-radius: 0;
-  border-left: none;
-  border-right: none;
-  max-height: 520px;
-  overflow: hidden;
+  border-radius: 12px;
+  
+  
+  
+  
 }
 .event-photo .photo-frame img {
   width: 100%;
   height: auto;
-  max-height: 520px;
-  object-fit: cover;
-  object-position: center center;
+  
+  
+  
 }
 .event-photo .credit {
   font-size: .85rem; color: var(--muted); margin-top: 6px; font-style: italic;
@@ -627,12 +627,12 @@ main .accent { color: var(--orange) !important; }
 
 /* Full-width photo grids (e.g. cols-2) */
 .grid.cols-2:has(.event-photo) {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  max-width: 1000px; width: 100%;
+  
+  
+  
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
   gap: 4px;
 }
@@ -645,15 +645,15 @@ main .accent { color: var(--orange) !important; }
   margin-bottom: 0;
 }
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame {
-  max-height: 420px;
+  
   background: #1a1a1a;
 }
 .grid.cols-2:has(.event-photo) .event-photo .photo-frame img {
   width: 100%;
   height: auto;
-  max-height: 420px;
-  object-fit: cover;
-  object-position: center center;
+  
+  
+  
 }
 .grid.cols-2:has(.event-photo) .event-photo .credit {
   max-width: none;
