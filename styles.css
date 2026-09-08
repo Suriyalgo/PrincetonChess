@@ -534,10 +534,10 @@ main .accent { color: var(--orange) !important; }
 /* ---- Sponsors ---- */
 .sponsors-label { display: block; text-align: center; margin: -34px 0 12px; }
 .sponsors { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.sponsors-inner { max-width: var(--maxw); margin: 0 auto; padding: 44px 24px; text-align: center; }
+.sponsors-inner { max-width: var(--maxw); margin: 0 auto; padding: 64px 24px; text-align: center; }
 .sponsor-logos { display: flex; gap: 50px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 22px; }
-.sponsor-logos img { max-height: 70px; max-width: 230px; filter: grayscale(1); opacity: .75; transition: filter .3s, opacity .3s, transform .3s; }
-.sponsor-logos a:hover img { filter: none; opacity: 1; transform: scale(1.08); }
+.sponsor-logos img { max-height: 140px; max-width: 400px; filter: none; opacity: 1; transition: filter .3s, opacity .3s, transform .3s; }
+.sponsor-logos a:hover img { filter: none; opacity: 1; transform: scale(1.06); }
 
 /* Animated sponsors band (the one moved above the mission) */
 .sponsors-hero {
